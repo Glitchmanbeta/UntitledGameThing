@@ -36,3 +36,7 @@ animation = "left"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.277405, 0.27739 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.6, 0.6 )

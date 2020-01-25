@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 250
+var speed = 150
 var velocity = Vector2()
 var screen_size
 
