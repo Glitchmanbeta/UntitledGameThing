@@ -19,6 +19,10 @@ config/name="Untitled Thing"
 run/main_scene="res://Player.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

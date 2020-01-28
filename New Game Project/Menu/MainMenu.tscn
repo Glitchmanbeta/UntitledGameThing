@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Menu/assets/main_menu/background.png" type="Texture" id=1]
 [ext_resource path="res://Menu/assets/main_menu/title.png" type="Texture" id=2]
 [ext_resource path="res://Menu/assets/main_menu/label_new_game.png" type="Texture" id=3]
 [ext_resource path="res://Menu/assets/main_menu/pressed_new_game.png" type="Texture" id=4]
 [ext_resource path="res://Menu/assets/main_menu/hover_new_game.png" type="Texture" id=5]
-[ext_resource path="res://Menu/assets/main_menu/label_continue.png" type="Texture" id=6]
-[ext_resource path="res://Menu/assets/main_menu/pressed_continue.png" type="Texture" id=7]
-[ext_resource path="res://Menu/assets/main_menu/hover_continue.png" type="Texture" id=8]
-[ext_resource path="res://Menu/assets/main_menu/label_options.png" type="Texture" id=9]
-[ext_resource path="res://Menu/assets/main_menu/pressed_options.png" type="Texture" id=10]
-[ext_resource path="res://Menu/assets/main_menu/hover_options.png" type="Texture" id=11]
-[ext_resource path="res://Menu/assets/main_menu/version.png" type="Texture" id=12]
+[ext_resource path="res://Menu/NewGame.gd" type="Script" id=6]
+[ext_resource path="res://Menu/assets/main_menu/label_continue.png" type="Texture" id=7]
+[ext_resource path="res://Menu/assets/main_menu/pressed_continue.png" type="Texture" id=8]
+[ext_resource path="res://Menu/assets/main_menu/hover_continue.png" type="Texture" id=9]
+[ext_resource path="res://Menu/assets/main_menu/label_options.png" type="Texture" id=10]
+[ext_resource path="res://Menu/assets/main_menu/pressed_options.png" type="Texture" id=11]
+[ext_resource path="res://Menu/assets/main_menu/hover_options.png" type="Texture" id=12]
+[ext_resource path="res://Menu/assets/main_menu/version.png" type="Texture" id=13]
 
 [node name="MainMenu" type="MarginContainer"]
 anchor_right = 1.0
@@ -69,25 +70,27 @@ margin_bottom = 36.0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 5 )
+script = ExtResource( 6 )
 
 [node name="Continue" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuOptions"]
 margin_top = 46.0
 margin_right = 238.0
 margin_bottom = 82.0
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 8 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 9 )
 
 [node name="Options" type="TextureButton" parent="CenterContainer/VBoxContainer/CenterContainer/MenuOptions"]
 margin_top = 92.0
 margin_right = 238.0
 margin_bottom = 138.0
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 11 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 12 )
 
 [node name="VersionNote" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer/MenuOptions"]
 margin_top = 148.0
 margin_right = 238.0
 margin_bottom = 210.0
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/MenuOptions/NewGame" to="CenterContainer/VBoxContainer/CenterContainer/MenuOptions/NewGame" method="_on_NewGame_pressed"]
