@@ -3,6 +3,7 @@ extends KinematicBody2D
 var speed = 150
 var velocity = Vector2()
 var screen_size
+var can_interact = false;
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -32,7 +33,18 @@ func get_input():
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down";
 		
+func interact():
+	if can_interact == true && Input.is_action_just_pressed("interactions"):
+		print("Interacting");
+
+func _on_Area2D_area_entered(area):
+	can_interact = true;
+
+
+func _on_Area2D_area_exited(area):
+	can_interact = false;
 	
 func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
+	interact();
