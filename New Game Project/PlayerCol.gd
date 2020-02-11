@@ -1,13 +1,16 @@
 extends KinematicBody2D
 
+# speed of the player
 var speed = 150
 var velocity = Vector2()
 var screen_size
 var can_interact = false;
 
+# get the size of the screen
 func _ready():
 	screen_size = get_viewport_rect().size
 
+# function to tell what input is being pressed + animation of player
 func get_input():
 	velocity = Vector2()
 	if Input.is_action_pressed('ui_right'):
@@ -33,17 +36,20 @@ func get_input():
 	elif velocity.y > 0:
 		$AnimatedSprite.animation = "down";
 		
+# a function to check if the player can interact or not
 func interact():
 	if can_interact == true && Input.is_action_just_pressed("interactions"):
 		print("Interacting");
 
+# if an area2d detects an area2d has enter its area then change can_interact to true
 func _on_Area2D_area_entered(area):
 	can_interact = true;
 
-
+# if an area2d leaves an area2d then chance the can_interact to false
 func _on_Area2D_area_exited(area):
 	can_interact = false;
 	
+# function to constantly check what the player is doing
 func _physics_process(delta):
 	get_input()
 	move_and_collide(velocity * delta)
